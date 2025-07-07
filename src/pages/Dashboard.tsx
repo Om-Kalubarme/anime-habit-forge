@@ -137,18 +137,9 @@ export const Dashboard = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-muted/30 to-primary/5">
-      {/* Hero Section */}
-      <div 
-        className="relative h-64 bg-cover bg-center bg-no-repeat rounded-b-3xl overflow-hidden"
-        style={{ backgroundImage: `url(${heroImage})` }}
-      >
-        <div className="absolute inset-0 bg-gradient-hero opacity-90" />
-        <div className="absolute inset-0 flex items-center justify-center text-center text-white">
-          <div className="space-y-4">
-            <h1 className="text-4xl font-bold">Your Habit Journey</h1>
-            <p className="text-xl opacity-90">Transform your life, one day at a time</p>
-          </div>
-        </div>
+      {/* Quote Section */}
+      <div className="container mx-auto p-6 pt-8">
+        <QuoteCard />
       </div>
 
       <div className="container mx-auto p-6 space-y-8">
@@ -275,21 +266,6 @@ export const Dashboard = () => {
           ))}
         </div>
 
-        {/* Motivation Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <QuoteCard />
-          <div 
-            className="bg-cover bg-center rounded-lg p-6 flex items-center justify-center"
-            style={{ backgroundImage: `url(${growthImage})` }}
-          >
-            <div className="bg-white/90 backdrop-blur-sm rounded-lg p-6 text-center">
-              <h3 className="text-xl font-bold mb-2">Growth Mindset</h3>
-              <p className="text-muted-foreground">
-                Every day is a chance to improve and grow stronger than yesterday.
-              </p>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );

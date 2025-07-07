@@ -54,54 +54,31 @@ const motivationalQuotes: Quote[] = [
 
 export const QuoteCard = () => {
   const [currentQuote, setCurrentQuote] = useState(0);
-  const [liked, setLiked] = useState(false);
   
   const quote = motivationalQuotes[currentQuote];
   
   const nextQuote = () => {
     setCurrentQuote((prev) => (prev + 1) % motivationalQuotes.length);
-    setLiked(false);
   };
 
   return (
-    <Card className="bg-gradient-motivational text-white shadow-primary">
-      <CardContent className="p-6">
-        <div className="text-center space-y-4">
-          <div className="flex justify-center">
-            <Star className="h-8 w-8 text-accent animate-pulse-glow" />
-          </div>
-          
-          <blockquote className="text-lg font-medium leading-relaxed">
-            "{quote.text}"
-          </blockquote>
-          
-          <div className="space-y-2">
-            <p className="text-sm font-semibold">— {quote.author}</p>
-            <p className="text-xs text-white/70">{quote.source}</p>
-          </div>
-          
-          <div className="flex items-center justify-center gap-3 pt-4">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => setLiked(!liked)}
-              className="bg-white/10 border-white/20 text-white hover:bg-white/20"
-            >
-              <Heart className={`h-4 w-4 mr-1 ${liked ? 'fill-current' : ''}`} />
-              {liked ? 'Liked' : 'Like'}
-            </Button>
-            
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={nextQuote}
-              className="bg-white/10 border-white/20 text-white hover:bg-white/20"
-            >
-              New Quote
-            </Button>
-          </div>
-        </div>
-      </CardContent>
-    </Card>
+    <div className="bg-gradient-motivational text-white rounded-3xl p-8 text-center">
+      <blockquote className="text-xl font-medium leading-relaxed mb-4">
+        "{quote.text}"
+      </blockquote>
+      
+      <div className="mb-4">
+        <p className="text-sm font-semibold">— {quote.author}</p>
+      </div>
+      
+      <Button
+        variant="outline"
+        size="sm"
+        onClick={nextQuote}
+        className="bg-white/10 border-white/20 text-white hover:bg-white/20"
+      >
+        New Quote
+      </Button>
+    </div>
   );
 };
